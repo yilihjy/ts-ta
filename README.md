@@ -56,7 +56,7 @@ ta.TA.MACD(data);
 console.log(data);
 ```  
 # API
-see [doc](./doc/index.html)
+see [doc](https://yilihjy.com/doc/ts-ta/classes/_ta_.ta.html)
 
 # License
 [MIT](./LICENSE)
