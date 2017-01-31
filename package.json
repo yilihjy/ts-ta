@@ -1,0 +1,52 @@
+{
+  "name": "ts-ta",
+  "version": "0.1.0",
+  "description": "A pure javascript technical analysis library written by typescript",
+  "main": "./dist/index.js",
+  "scripts": {
+    "test": "gulp test",
+    "watch:test": "gulp watch:test",
+    "watch": "gulp watch",
+    "build": "gulp build",
+    "compile": "gulp compile",
+    "watch:browser": "gulp watch:browser",
+    "build:browser": "gulp build:browser",
+    "compile:browser": "gulp compile:browser",
+    "clean": "gulp clean",
+    "start": "gulp build"
+  },
+  "devDependencies": {
+    "@types/jasmine": "^2.5.41",
+    "babel-preset-es2015": "^6.22.0",
+    "babelify": "^7.3.0",
+    "browserify": "^14.0.0",
+    "gulp": "^3.9.1",
+    "gulp-clean": "^0.3.2",
+    "gulp-jasmine": "^2.4.2",
+    "gulp-sourcemaps": "^2.4.0",
+    "gulp-typescript": "^3.1.4",
+    "gulp-uglify": "^2.0.1",
+    "jasmine": "^2.5.3",
+    "tsify": "^3.0.0",
+    "typescript": "^2.1.5",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "^1.1.0"
+  },
+  "dependencies": {
+
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yilihjy/ts-ta.git"
+  },
+  "keywords": [
+    "technical analysis",
+    "ta"
+  ],
+  "author": "yilihjy <yilihjy@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yilihjy/ts-ta/issues"
+  },
+  "homepage": "https://github.com/yilihjy/ts-ta#readme"
+}
