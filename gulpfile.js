@@ -31,7 +31,7 @@ gulp.task('compile', ["compile:type"], function () {
     return stream;
 });
 
-gulp.task("compile:type",['clean:dist'],function(){
+gulp.task("compile:type", ['clean:dist'], function () {
     let stream = tsProject.src()
         .pipe(tsProject())
         .dts
@@ -113,4 +113,6 @@ gulp.task("build:browser", ["test"], function () {
 gulp.task("watch:browser", ["build:browser"], function () {
     gulp.watch("src/**/*.*", ["build:browser"]);
 });
+
+
 

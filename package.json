@@ -3,7 +3,7 @@
   "version": "0.1.2",
   "description": "A pure javascript technical analysis library written by typescript",
   "main": "./dist/index.js",
-  "types":"./dist/type/index.d.ts",
+  "types": "./dist/type/index.d.ts",
   "scripts": {
     "test": "gulp test",
     "watch:test": "gulp watch:test",
@@ -14,6 +14,7 @@
     "build:browser": "gulp build:browser",
     "compile:browser": "gulp compile:browser",
     "clean": "gulp clean",
+    "docs":"typedoc --options typedoc.json --exclude '**/*.spec.ts' ./src/",
     "start": "gulp build"
   },
   "devDependencies": {
@@ -25,17 +26,17 @@
     "gulp-clean": "^0.3.2",
     "gulp-jasmine": "^2.4.2",
     "gulp-sourcemaps": "^2.4.0",
+    "gulp-typedoc": "^2.0.2",
     "gulp-typescript": "^3.1.4",
     "gulp-uglify": "^2.0.1",
     "jasmine": "^2.5.3",
     "tsify": "^3.0.0",
+    "typedoc": "^0.5.5",
     "typescript": "^2.1.5",
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0"
   },
-  "dependencies": {
-
-  },
+  "dependencies": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/yilihjy/ts-ta.git"
