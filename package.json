@@ -1,6 +1,6 @@
 {
   "name": "ts-ta",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "description": "A pure javascript technical analysis library written by typescript",
   "main": "./dist/index.js",
   "types": "./dist/type/index.d.ts",
@@ -8,7 +8,7 @@
     "test": "gulp test",
     "watch:test": "gulp watch:test",
     "watch": "gulp watch",
-    "build": "gulp build",
+    "build": "gulp build && npm run docs",
     "compile": "gulp compile",
     "watch:browser": "gulp watch:browser",
     "build:browser": "gulp build:browser",

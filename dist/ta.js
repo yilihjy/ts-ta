@@ -9,6 +9,7 @@ class TA {
      * @param n 必填参数，如计算MA5则填5
      * @param input_property 选填参数，不填则默认为close
      * @param output_property 选填参数，不填则默认为MAn，这里n就是前面的参数n
+     * @param start 选填参数，开始索引，默认为0
      */
     static MA(source, n, input_property, output_property, start) {
         if (!input_property) {
@@ -200,44 +201,28 @@ class TA {
     /**
      * 计算指数平均数EMA(EXPMA)
      * @param source 必填参数，为一个数组对象[{day:string,close:string|number}...]，注意：如果对象中没有close参数则要指定input_property参数
-     * @param n1 选填参数，默认为12
-     * @param n2 选填参数，默认为50
+     * @param n 周期
      * @param input_property 选填参数，不填则默认为close
      * @param output_property 选填参数，不填则默认为EMAn，这里n就是前面的参数n
+     * @param start 选填参数，开始索引，默认为0
      */
-    static EMA(source, n1, n2, input_property, output_property) {
-        if (!n1) {
-            n1 = 12;
-        }
-        if (!n2) {
-            n2 = 50;
-        }
+    static EMA(source, n, input_property, output_property, start) {
         if (!input_property) {
             input_property = "close";
         }
         if (!output_property) {
             output_property = "EMA";
         }
-        let co1 = 2 / (n1 + 1);
-        let co2;
-        if (n1 != n2) {
-            co2 = 2 / (n2 + 1);
+        if (!start) {
+            start = 0;
         }
+        let co = 2 / (n + 1);
         for (let i = 0; i < source.length; i++) {
-            source[i][`${output_property}${n1}`] = null;
-            if (n1 != n2) {
-                source[i][`${output_property}${n2}`] = null;
-            }
+            source[i][`${output_property}${n}`] = null;
         }
-        source[0][`${output_property}${n1}`] = +source[0][`${input_property}`];
-        if (n1 != n2) {
-            source[0][`${output_property}${n2}`] = +source[0][`${input_property}`];
-        }
-        for (let i = 1; i < source.length; i++) {
-            source[i][`${output_property}${n1}`] = (+source[i][`${input_property}`] - source[i - 1][`${output_property}${n1}`]) * co1 + source[i - 1][`${output_property}${n1}`];
-            if (n1 != n2) {
-                source[i][`${output_property}${n2}`] = (+source[i][`${input_property}`] - source[i - 1][`${output_property}${n2}`]) * co2 + source[i - 1][`${output_property}${n2}`];
-            }
+        source[start][`${output_property}${n}`] = +source[start][`${input_property}`];
+        for (let i = start + 1; i < source.length; i++) {
+            source[i][`${output_property}${n}`] = (+source[i][`${input_property}`] - source[i - 1][`${output_property}${n}`]) * co + source[i - 1][`${output_property}${n}`];
         }
     }
     /**
@@ -257,15 +242,67 @@ class TA {
         if (!n) {
             n = 9;
         }
-        TA.EMA(source, fast, slow);
+        TA.EMA(source, fast);
+        TA.EMA(source, slow);
         for (let i = 0; i < source.length; i++) {
             source[i]["DIFF"] = source[i][`EMA${fast}`] - source[i][`EMA${slow}`];
         }
-        TA.EMA(source, n, n, "DIFF", "DEA");
+        TA.EMA(source, n, "DIFF", "DEA");
         for (let i = 0; i < source.length; i++) {
             source[i][`DEA`] = source[i][`DEA${n}`];
             delete source[i][`DEA${n}`];
             source[i][`MACD`] = source[i]["DIFF"] - source[i][`DEA`];
+        }
+    }
+    /**
+     * 计算振动升降指标ASI
+     * @param source 必填参数，为一个数组对象[{day:string,close:string|number,open:string|number,high:string|number,low:string|number}...]
+     * @param n 选填参数，天数，默认为9
+     * @param α 选填参数，平滑系数，默认为1/3
+     */
+    static KDJ(source, n, α) {
+        if (!n) {
+            n = 9;
+        }
+        if (!α) {
+            α = 1 / 3;
+        }
+        for (let i = 0; i < source.length; i++) {
+            source[i]["K"] = null;
+            source[i]["D"] = null;
+            source[i]["J"] = null;
+        }
+        let stack = new Array();
+        for (let i = 0; i < n - 1; i++) {
+            stack.push(source[i]);
+        }
+        for (let i = n - 1; i < source.length; i++) {
+            stack.push(source[i]);
+            let close = +source[i].close;
+            let high = +stack[0].high;
+            let low = +stack[0].low;
+            for (let m = 1; m < stack.length; m++) {
+                if (+stack[i].high > high) {
+                    high = +stack[i].high;
+                }
+                if (stack[i].low < low) {
+                    low = +stack[i].low;
+                }
+            }
+            let RSV = (close - low) / (high - low) * 100;
+            let k;
+            let d;
+            if (i == n - 1) {
+                k = 50;
+                d = 50;
+            }
+            else {
+                k = source[i - 1]["K"];
+                d = source[i - 1]["D"];
+            }
+            source[i]["K"] = α * RSV + (1 - α) * k;
+            source[i]["D"] = α * source[i]["K"] + (1 - α) * k;
+            source[i]["J"] = 3 * source[i]["K"] - 2 * source[i]["D"];
         }
     }
 }

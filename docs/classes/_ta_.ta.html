@@ -95,6 +95,7 @@
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="_ta_.ta.html#dma" class="tsd-kind-icon">DMA</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="_ta_.ta.html#dmi" class="tsd-kind-icon">DMI</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="_ta_.ta.html#ema" class="tsd-kind-icon">EMA</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="_ta_.ta.html#kdj" class="tsd-kind-icon">KDJ</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="_ta_.ta.html#ma" class="tsd-kind-icon">MA</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><a href="_ta_.ta.html#macd" class="tsd-kind-icon">MACD</a></li>
 							</ul>
@@ -114,7 +115,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/yilihjy/ts-ta/blob/918d6be/src/ta.ts#L45">ta.ts:45</a></li>
+									<li>Defined in <a href="https://github.com/yilihjy/ts-ta/blob/e401eff/src/ta.ts#L46">ta.ts:46</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -151,7 +152,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/yilihjy/ts-ta/blob/918d6be/src/ta.ts#L89">ta.ts:89</a></li>
+									<li>Defined in <a href="https://github.com/yilihjy/ts-ta/blob/e401eff/src/ta.ts#L90">ta.ts:90</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -200,7 +201,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/yilihjy/ts-ta/blob/918d6be/src/ta.ts#L132">ta.ts:132</a></li>
+									<li>Defined in <a href="https://github.com/yilihjy/ts-ta/blob/e401eff/src/ta.ts#L133">ta.ts:133</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -231,13 +232,13 @@
 					<a name="ema" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagStatic">Static</span> EMA</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
-						<li class="tsd-signature tsd-kind-icon">EMA<span class="tsd-signature-symbol">(</span>source<span class="tsd-signature-symbol">: </span><a href="../interfaces/_interface_.min.html" class="tsd-signature-type">MIN</a><span class="tsd-signature-symbol">[]</span>, n1<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span>, n2<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span>, input_property<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span>, output_property<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">EMA<span class="tsd-signature-symbol">(</span>source<span class="tsd-signature-symbol">: </span><a href="../interfaces/_interface_.min.html" class="tsd-signature-type">MIN</a><span class="tsd-signature-symbol">[]</span>, n<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, input_property<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span>, output_property<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span>, start<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/yilihjy/ts-ta/blob/918d6be/src/ta.ts#L204">ta.ts:204</a></li>
+									<li>Defined in <a href="https://github.com/yilihjy/ts-ta/blob/e401eff/src/ta.ts#L206">ta.ts:206</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -254,15 +255,9 @@
 									</div>
 								</li>
 								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> n1: <span class="tsd-signature-type">number</span></h5>
+									<h5>n: <span class="tsd-signature-type">number</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>选填参数，默认为12</p>
-									</div>
-								</li>
-								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> n2: <span class="tsd-signature-type">number</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>选填参数，默认为50</p>
+										<p>周期</p>
 									</div>
 								</li>
 								<li>
@@ -275,6 +270,55 @@
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> output_property: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>选填参数，不填则默认为EMAn，这里n就是前面的参数n</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> start: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>选填参数，开始索引，默认为0</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-static">
+					<a name="kdj" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> KDJ</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static">
+						<li class="tsd-signature tsd-kind-icon">KDJ<span class="tsd-signature-symbol">(</span>source<span class="tsd-signature-symbol">: </span><a href="../interfaces/_interface_.price_base.html" class="tsd-signature-type">PRICE_BASE</a><span class="tsd-signature-symbol">[]</span>, n<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span>, α<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/yilihjy/ts-ta/blob/e401eff/src/ta.ts#L263">ta.ts:263</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>计算振动升降指标ASI</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>source: <a href="../interfaces/_interface_.price_base.html" class="tsd-signature-type">PRICE_BASE</a><span class="tsd-signature-symbol">[]</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>必填参数，为一个数组对象[{day:string,close:string|number,open:string|number,high:string|number,low:string|number}...]</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> n: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>选填参数，天数，默认为9</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> α: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>选填参数，平滑系数，默认为1/3</p>
 									</div>
 								</li>
 							</ul>
@@ -292,7 +336,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/yilihjy/ts-ta/blob/918d6be/src/ta.ts#L14">ta.ts:14</a></li>
+									<li>Defined in <a href="https://github.com/yilihjy/ts-ta/blob/e401eff/src/ta.ts#L15">ta.ts:15</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -328,6 +372,9 @@
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> start: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>选填参数，开始索引，默认为0</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -344,7 +391,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/yilihjy/ts-ta/blob/918d6be/src/ta.ts#L250">ta.ts:250</a></li>
+									<li>Defined in <a href="https://github.com/yilihjy/ts-ta/blob/e401eff/src/ta.ts#L234">ta.ts:234</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -420,6 +467,9 @@
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
 								<a href="_ta_.ta.html#ema" class="tsd-kind-icon">EMA</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
+								<a href="_ta_.ta.html#kdj" class="tsd-kind-icon">KDJ</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static">
 								<a href="_ta_.ta.html#ma" class="tsd-kind-icon">MA</a>

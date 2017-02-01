@@ -10,8 +10,13 @@
 * DMI 动向指数
 * EXPMA(EMA) 指数平均数
 * MACD 平滑异同移动平均线
+* KDJ 随机指标
   
 更多指标持续更新中。。。  
+
+# API
+see [doc](https://yilihjy.com/doc/ts-ta/classes/_ta_.ta.html)
+  
 # Example
 Use Typescript:
 ```javascript
@@ -55,8 +60,10 @@ let data = [{ day: "2016-08-29", open: "22.860", high: "23.250", low: "22.750", 
 ta.TA.MACD(data);
 console.log(data);
 ```  
-# API
-see [doc](https://yilihjy.com/doc/ts-ta/classes/_ta_.ta.html)
 
+# Change log
+
+* 2017/02/01 v0.2.0 增加KDJ指标，修改EMA指标实现  
+  
 # License
 [MIT](./LICENSE)
