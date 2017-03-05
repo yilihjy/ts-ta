@@ -1,5 +1,6 @@
 # TS-TA
-一个使用typescript写的纯javascript技术分析库。
+一个使用typescript写的纯javascript技术分析库。  
+注意：目前部分指标实现算法存在问题，需要进行调整，预计四月之前会更新
 # Install
 `npm install --save ts-ta`
 
