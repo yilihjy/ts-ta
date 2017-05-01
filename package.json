@@ -1,6 +1,6 @@
 {
   "name": "ts-ta",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "A pure javascript technical analysis library written by typescript",
   "main": "./dist/index.js",
   "types": "./dist/type/index.d.ts",
@@ -30,8 +30,8 @@
     "gulp-uglify": "^2.0.1",
     "jasmine": "^2.5.3",
     "tsify": "^3.0.0",
-    "typedoc": "^0.5.5",
-    "typescript": "^2.1.5",
+    "typedoc": "^0.6.0",
+    "typescript": "^2.3.0",
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0"
   },
