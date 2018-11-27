@@ -1,5 +1,6 @@
 # TS-TA
-一个使用typescript写的纯javascript技术分析库。  
+一个使用typescript写的纯javascript技术分析库。 
+注意：目前这个项目没有在维护。
 
 # 注意
 从v0.3.0版本开始使用了全新的API接口，不兼容之前的API接口。  
